@@ -1,15 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PokemonService } from 'src/service/pokemon.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-nav',
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.scss'],
 })
-
-export class AppComponent {
-  title = 'pokemon';
-
+export class NavComponent implements OnInit {
   listaPokemonInicial: Array<any> = new Array<any>();
 
   listaPokemonDetalhado: Array<any> = new Array<any>();

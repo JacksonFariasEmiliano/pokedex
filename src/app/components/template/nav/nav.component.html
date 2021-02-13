@@ -1,0 +1,18 @@
+
+<mat-list *ngFor= "let x of listaPokemonInicial">
+ <a (click)="detalhe(x.name);"> {{ x.name}}</a>
+</mat-list>
+
+<!--Lista
+
+<mat-nav-list>
+  <mat-list-item *ngFor="let x listaPokemonInicial">
+     <a matLine href="...">{{ link }}</a>
+     <button mat-icon-button (click)="showInfo(link)">
+        <mat-icon>info</mat-icon>
+     </button>
+  </mat-list-item>
+
+</mat-nav-list>
+-->
+
