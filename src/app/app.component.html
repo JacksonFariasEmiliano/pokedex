@@ -30,26 +30,26 @@
       <div class="p-3">
         <figure>
           <img
-            src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
-            width="90"
-            alt="Pikachu"
+            [src]="imagem"
+            width="130"
             class="float-left p-3"
           />
         </figure>
-
-        <h2 class="p-2">Teste</h2>
+        <br><br>
+        <h2 class="p-2">{{nomePrincipal}}</h2>
 
         <!--Box descrição-->
-        <div class="box-descricao p-4" *ngFor="let x of listaPokemonDetalhado">
+
+        <div class="box-descricao p-4">
           <h3>Habilidades:</h3>
 
-          <mat-list *ngFor="let x of listaPokemonDetalhado.abilities">
-            <mat-list-item> -- {{ x.ability.name }} </mat-list-item>
+          <mat-list *ngFor="let x of listaHabilidade">
+            <h4> - {{ x.ability.name }} </h4>
           </mat-list>
 
           <h3>Tipos</h3>
-          <mat-list *ngFor="let x of listaPokemonDetalhado.types">
-            <mat-list-item> -- {{ x.type.name }} </mat-list-item>
+          <mat-list *ngFor="let y of listaTipo">
+          <h4> - {{ y.type.name }} </h4>
           </mat-list>
 
         </div>

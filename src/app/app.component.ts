@@ -3,18 +3,24 @@ import { PokemonService } from 'src/service/pokemon.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl:'./app.component.html',
   styleUrls: ['./app.component.scss']
 })
 
 export class AppComponent {
   title = 'pokemon';
 
-  listaPokemonInicial: Array<any> = new Array<any>();
+  nomePrincipal: string;  //Nome que aparecerá na área de descrição
 
-  listaPokemonDetalhado: Array<any> = new Array<any>();
+  listaPokemonInicial: Array<any> = new Array<any>(); //Recebe os 100 primeiros pokemons com name e url.
 
-  nomedet: string;
+  listaHabilidade: Array<any> = new Array<any>(); //Lista que recebe somente as abilities.(parte do Json)
+
+  listaTipo: Array<any> = new Array<any>(); // Lista que recebe somente os Types (parte do Json).
+
+  imagem: string;
+
+  nomedet: string; // nome que será acrescentado na pesquisa da Url. no service
 
   constructor(private pokService: PokemonService) {}
 
@@ -26,8 +32,13 @@ export class AppComponent {
 
   detalhe(nome: any) {
     this.nomedet = nome;
+    this.nomePrincipal = this.nomedet;
     this.pokService
       .detalhar(this.nomedet)
-      .then((resposta) => (this.listaPokemonDetalhado = resposta));
+      .then((resposta) => {
+        this.listaHabilidade = resposta.abilities;
+        this.listaTipo = resposta.types;
+        this.imagem = resposta.sprites.back_default;
+      });
   }
 }
